@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RockPixel Play</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet"> <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Outfit", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #000000 0%, #00231b 100%);
+            color: white;
+            line-height: 1.6;
+        }
+
+        header {
+            padding-bottom: 100px;
+            padding-top: 100px;
+            text-align: center;
+            background: linear-gradient(135deg, #001710, #003d2c);
+        }
+
+        header img {
+            width: 80px;
+            margin-bottom: 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #00ffae;
+        }
+
+        header p {
+            color: #ccc;
+            margin: 1rem 0;
+        }
+
+        .download-btn {
+            padding: 0.8rem 2rem;
+            background: #00ffae;
+            color: #000;
+            border: none;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #0b7e60;
+        }
+
+        section {
+            padding: 2rem 1rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #00ffae;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 0.5rem 0;
+            text-align: left;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        ul li::before {
+            position: absolute;
+            left: 0;
+            color: #00ffae;
+        }
+
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .screenshots img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 255, 174, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshots img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #1a1a1a;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .github-btn {
+            background: transparent;
+            border: 2px solid #00ffae;
+            color: #00ffae;
+        }
+
+        .github-btn:hover {
+            background: #00ffae;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="logo.png" alt="RockPixel Logo">
+    <h1>RockPixel Play</h1>
+    <p>The lightweight, powerful, open-source Android video player.</p>
+    <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="./Rock%20pixelplay%20v0.1%20beta.apk" class="download-btn">Download Now</a>
+        <a href="https://github.com/anuj-softech/PixelPlay" target="https://github.com/anuj-softech/PixelPlay" class="download-btn github-btn">View on GitHub</a>
+    </div>
+
+</header>
+
+<section class="animate">
+    <h2>About</h2>
+    <p>RockPixel Player is a free, open-source Android video player built on Media3 ExoPlayer. It supports almost all
+        video formats, is lightweight, and offers a smooth playback experience while packing in powerful features.</p>
+</section>
+
+<section class="animate">
+    <h2>Features</h2>
+    <ul>
+        <li>🎮 Wide Format Support: MKV, MP4, 3GP, WebM, AVI, MOV, and more.</li>
+        <li>⚡ Lightweight and Fast: Minimal resource usage.</li>
+        <li>🔧 Custom Controller for easy playback.</li>
+        <li>📌 Recent Videos listing.</li>
+        <li>🔍 File Browser.</li>
+        <li>▶️ Play directly from other apps.</li>
+        <li>🔊 Gesture Controls (Planned).</li>
+        <li>⏩ Playback Speed Control (Planned).</li>
+    </ul>
+</section>
+
+<section class="animate">
+    <h2>Current Progress</h2>
+    <ul>
+        <li>✅ Video Playback</li>
+        <li>✅ Custom Controller</li>
+        <li>✅ Homescreen</li>
+        <li>✅ Dark mode supported</li>
+        <li>✅ File Browser</li>
+        <li>⏳ Multiple Advanced Features (In Progress)</li>
+    </ul>
+</section>
+
+<section class="animate">
+    <h2>Screenshots</h2>
+    <div class="screenshots">
+        <img src="1.png" alt="Screenshot 1">
+        <img src="2.png" alt="Screenshot 2">
+        <img src="3.png" alt="Screenshot 3">
+        <img src="4.png" alt="Screenshot 4">
+        <img src="5.png" alt="Screenshot 5">
+        <img src="6.png" alt="Screenshot 6">
+        <img src="7.png" alt="Screenshot 7">
+        <img src="8.png" alt="Screenshot 8">
+
+    </div>
+</section>
+
+<section class="animate">
+    <h2>Build</h2>
+    <pre style="background:#1e1e1e;color:#00ffae;padding:1rem;border-radius:8px;overflow-x:auto">
+git clone https://github.com/anuj-softech/PixelPlay.git
+Open the project in Android Studio.
+Build and run on your Android device.
+    </pre>
+</section>
+
+<section class="animate">
+    <h2>Contributing</h2>
+    <p>Contributions are welcome! Feel free to open issues for feature requests or bug reports, and send pull
+        requests.</p>
+</section>
+
+<section class="animate">
+    <h2>License</h2>
+    <p>This project is licensed under the MIT License. See the LICENSE file for more details.</p>
+</section>
+
+<footer>
+    <p>Made with ❤️ by Anuj Shrivastava MANIT. ⭐ Star the repo if you like it!</p>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, {threshold: 0.1});
+
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
