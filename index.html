@@ -7,6 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <style>
+        :root {
+
+            --glow-color-1: #d0ffb3;
+            --glow-color-2: #72c8ad;
+            --glow-color-3: #a4f4ef;
+            --glow-color-4: #00fdad;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -46,7 +54,6 @@
 
         .download-btn {
             padding: 0.8rem 2rem;
-            background: #00ffae;
             color: #000;
             border: none;
             font-weight: bold;
@@ -54,6 +61,18 @@
             text-decoration: none;
             cursor: pointer;
             transition: 0.3s;
+            animation: glow-labs-gradient 2.1s linear infinite;
+            background: linear-gradient(135deg, var(--glow-color-1), var(--glow-color-2), var(--glow-color-3), var(--glow-color-4), var(--glow-color-1), var(--glow-color-1), var(--glow-color-2), var(--glow-color-3), var(--glow-color-4), var(--glow-color-1));
+            background-size: 800% 800%;
+        }
+
+        @keyframes glow-labs-gradient {
+            0% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: top 37.5% left 37.5%;
+            }
         }
 
         .download-btn:hover {
@@ -195,6 +214,7 @@
         <img src="6.png" alt="Screenshot 6">
         <img src="7.png" alt="Screenshot 7">
         <img src="8.png" alt="Screenshot 8">
+        <img src="9.png" alt="Screenshot 8">
 
     </div>
 </section>
