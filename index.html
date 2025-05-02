@@ -164,7 +164,7 @@
     <h1>Rock PixelPlay</h1>
     <p>The lightweight, powerful, open-source Android video player.</p>
     <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <a href="./Rock%20pixelplay%20v0.1%20beta.apk" class="download-btn" download>Download Now</a>
+        <a href="./Rock%20pixelplay%20v0.1%20beta.apk" class="download-btn" onclick="countDown()" download>Download Now</a>
         <a href="https://github.com/anuj-softech/PixelPlay" target="https://github.com/anuj-softech/PixelPlay"
            class="download-btn github-btn">View on GitHub</a>
     </div>
@@ -249,25 +249,22 @@ Build and run on your Android device.
 
 <script>
 
-    fetch("https://pixelplay-analytics.main-rock-inc.workers.dev/stats", {
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => console.error('Error fetching stats:', error));
+    fetch("https://pixelplay-analytics.main-rock-inc.workers.dev/web")
+        .then(res => res)
+        .then(data => console.log("Analytics stats:", data))
+        .catch(err => console.error("Fetch error:", err));
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, {threshold: 0.1});
-
+    function countDown() {
+            fetch("https://pixelplay-analytics.main-rock-inc.workers.dev/download")
+            .then(res => res.json())
+            .then(data => console.log("Analytics stats:", data))
+            .catch(err => console.error("Fetch error:", err));
+    }
     document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 </script>
 </body>
