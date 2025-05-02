@@ -248,6 +248,20 @@ Build and run on your Android device.
 </footer>
 
 <script>
+
+    fetch("https://pixelplay-analytics.main-rock-inc.workers.dev/stats", {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => console.error('Error fetching stats:', error));
+
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('visible');
