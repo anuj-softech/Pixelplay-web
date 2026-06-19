@@ -1,271 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="logos.png">
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>RockPixel Play</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        :root {
+  <link rel="icon" type="image/png" href="logos.png">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RockPixel Play</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <style>
+    :root {
+      --glow-color-1: #d0ffb3;
+      --glow-color-2: #8effda;
+      --glow-color-3: #a4f4ef;
+      --glow-color-4: #00fdad;
+      --accent: #00ffae;
+      --bg-dark: #050d0a;
+      --card-bg: rgba(0, 40, 30, 0.35);
+      --card-border: rgba(0, 255, 174, 0.15);
+    }
 
-            --glow-color-1: #d0ffb3;
-            --glow-color-2: #8effda;
-            --glow-color-3: #a4f4ef;
-            --glow-color-4: #00fdad;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Outfit", sans-serif;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Outfit", sans-serif;
-        }
+    body {
+      background: radial-gradient(circle at top center, #002e20 0%, var(--bg-dark) 70%);
+      color: #f0f0f0;
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-left:10px;
+      padding-right: 10px;
+    }
 
-        body {
-            background: linear-gradient(135deg, #000000 0%, #00231b 100%);
-            color: white;
-            line-height: 1.6;
-        }
+    header {
+      padding: 160px 20px 100px 20px;
+      text-align: center;
+      position: relative;
+    }
 
-        header {
-            padding-bottom: 120px;
-            padding-top: 120px;
-            text-align: center;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            background: linear-gradient(135deg, #001710, #003d2c);
-        }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1200px;
+      height: 100%;
+      background: radial-gradient(circle at 50% 30%, rgba(0, 255, 174, 0.12), transparent 60%);
+      z-index: -1;
+    }
 
-        header img {
-            width: 80px;
-            margin-bottom: 1rem;
-        }
+    header img {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 20px rgba(0, 255, 174, 0.4));
+    }
 
-        header h1 {
-            font-size: 2.5rem;
-            color: #00ffae;
-        }
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(180deg, #ffffff 0%, #a4f4ef 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
 
-        header p {
-            color: #ccc;
-            margin: 1rem 0;
-        }
+    header p {
+      color: #a3b8b0;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0.5rem auto 2.5rem auto;
+      font-weight: 400;
+    }
 
-        .download-btn {
-            padding: 0.8rem 2rem;
-            color: #000;
-            border: none;
-            font-weight: bold;
-            border-radius: 8px;
-            text-decoration: none;
-            cursor: pointer;
-            animation: glow-labs-gradient 2.1s linear infinite;
-            background: linear-gradient(135deg, var(--glow-color-1), var(--glow-color-2), var(--glow-color-3), var(--glow-color-4), var(--glow-color-1), var(--glow-color-1), var(--glow-color-2), var(--glow-color-3), var(--glow-color-4), var(--glow-color-1));
-            background-size: 800% 800%;
-        }
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
 
-        @keyframes glow-labs-gradient {
-            0% {
-                background-position: 100% 100%;
-            }
-            100% {
-                background-position: top 37.5% left 37.5%;
-            }
-        }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1rem 2.2rem;
+      color: #000;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(0, 253, 173, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: glow-labs-gradient 2.1s linear infinite;
+      background: linear-gradient(135deg, var(--glow-color-1), var(--glow-color-2), var(--glow-color-3), var(--glow-color-4), var(--glow-color-1), var(--glow-color-1), var(--glow-color-2), var(--glow-color-3), var(--glow-color-4), var(--glow-color-1));
+      background-size: 800% 800%;
+    }
 
-        .download-btn:hover {
-            background: #7bffd6;
-        }
+    @keyframes glow-labs-gradient {
+      0% { background-position: 100% 100%; }
+      100% { background-position: top 37.5% left 37.5%; }
+    }
 
-        section {
-            padding: 2rem 1rem;
-            max-width: 900px;
-            margin: auto;
-        }
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(0, 253, 173, 0.4);
+    }
 
-        h2 {
-            color: #00ffae;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+    .github-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(0, 255, 174, 0.4);
+      color: var(--accent);
+      box-shadow: none;
+      backdrop-filter: blur(10px);
+    }
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+    .github-btn:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 8px 25px rgba(0, 255, 174, 0.25);
+    }
 
-        ul li {
-            margin: 0.5rem 0;
-            text-align: left;
-            position: relative;
-            padding-left: 1.5rem;
-        }
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto 2rem auto;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
 
-        ul li::before {
-            position: absolute;
-            left: 0;
-            color: #00ffae;
-        }
+    h2 {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+    }
 
-        .screenshots {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
+    h2 .material-icons-round {
+      color: var(--accent);
+      font-size: 2rem;
+    }
 
-        .screenshots img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0, 255, 174, 0.3);
-            transition: transform 0.3s ease;
-        }
+    p {
+      color: #b0c4bc;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
 
-        .screenshots img:hover {
-            transform: scale(1.05);
-        }
+    .grid-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
 
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: #1a1a1a;
-            color: #777;
-            font-size: 0.9rem;
-        }
+    .feature-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 1.25rem;
+      border-radius: 16px;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: border 0.3s ease, background 0.3s ease;
+    }
 
-        .animate {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
+    .feature-card:hover {
+      border-color: rgba(0, 255, 174, 0.3);
+      background: rgba(0, 255, 174, 0.02);
+    }
 
-        .animate.visible {
-            opacity: 1;
-            transform: none;
-        }
+    .feature-card .material-icons-round {
+      color: var(--accent);
+      background: rgba(0, 255, 174, 0.1);
+      padding: 10px;
+      border-radius: 12px;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
 
-        .github-btn {
-            background: transparent;
-            border: 2px solid #00ffae;
-            color: #00ffae;
-        }
+    .feature-card h3 {
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
 
-        .github-btn:hover {
-            background: #00ffae;
-            color: #000;
-        }
-    </style>
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #94a9a0;
+    }
+
+    .ai-badge {
+      background: linear-gradient(90deg, #00ffae, #00bfff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    .progress-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .progress-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.01);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .progress-item .material-icons-round.done {
+      color: var(--accent);
+    }
+
+    .progress-item .material-icons-round.pending {
+      color: #ffb74d;
+    }
+
+    .ai-spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .ai-spec-box {
+      background: rgba(0, 255, 174, 0.03);
+      border: 1px solid rgba(0, 255, 174, 0.1);
+      padding: 1.5rem;
+      border-radius: 16px;
+    }
+
+    .ai-spec-box h4 {
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ai-spec-box h4 .material-icons-round {
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+
+    .ai-spec-box p {
+      font-size: 0.95rem;
+      color: #a3b8b0;
+    }
+
+    .warning-note {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(255, 183, 77, 0.05);
+      border-left: 4px solid #ffb74d;
+      border-radius: 4px 12px 12px 4px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: #ffe0b2;
+    }
+
+    .warning-note .material-icons-round {
+      color: #ffb74d;
+      flex-shrink: 0;
+    }
+
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .screenshots img {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.04) translateY(-4px);
+      border-color: rgba(0, 255, 174, 0.4);
+    }
+
+    .landscape-demo {
+      margin-top: 2rem;
+    }
+
+    .landscape-demo img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 255, 174, 0.3);
+      box-shadow: 0 15px 50px rgba(0, 255, 174, 0.15);
+    }
+
+    pre {
+      background: #020705 !important;
+      border: 1px solid rgba(0, 255, 174, 0.2);
+      padding: 1.25rem;
+      border-radius: 14px;
+      overflow-x: auto;
+      color: var(--accent);
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background: #030806;
+      border-top: 1px solid rgba(0, 255, 174, 0.05);
+      color: #63756e;
+      font-size: 0.95rem;
+    }
+
+    footer p {
+      color: #63756e;
+      font-size: 0.95rem;
+    }
+
+    footer .material-icons-round {
+      color: #ff5252;
+      font-size: 1.1rem;
+      vertical-align: middle;
+    }
+
+    .animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .animate.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.5rem; }
+      header p { font-size: 1rem; }
+      section { padding: 2rem 1.25rem; border-radius: 20px; }
+    }
+  </style>
 </head>
 <body>
-<header>
-    <img src="logo.png" alt="RockPixel Logo">
-    <h1>Rock PixelPlay</h1>
-    <p>The lightweight, powerful, open-source Android video player.</p>
-    <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <a href="./Rock%20pixelplay%20v0.1%20beta.apk" class="download-btn" onclick="countDown()" download>Download Now</a>
-        <a href="https://github.com/anuj-softech/PixelPlay" target="https://github.com/anuj-softech/PixelPlay"
-           class="download-btn github-btn">View on GitHub</a>
-    </div>
 
+<header>
+  <img src="logo.png" alt="RockPixel Logo">
+  <h1>PixelPlay</h1>
+  <p>The lightweight, powerful, open-source Android video player featuring localized offline AI subtitle generation.</p>
+  <div class="btn-container">
+    <a href="./Rock-pixelplay-v1.0.apk" class="download-btn" onclick="countDown()" download>
+      <span class="material-icons-round">file_download</span>Download Now
+    </a>
+    <a href="https://github.com/anuj-softech/PixelPlay" target="_blank" class="download-btn github-btn">
+      <span class="material-icons-round">code</span>View on GitHub
+    </a>
+  </div>
 </header>
 
 <section class="animate">
-    <h2>About</h2>
-    <p>RockPixel Player is a free, open-source Android video player built on Media3 ExoPlayer. It supports almost all
-        video formats, is lightweight, and offers a smooth playback experience while packing in powerful features.</p>
+  <h2><span class="material-icons-round">info</span>About PixelPlay</h2>
+  <p>PixelPlayer is a free, open-source Android video player built on the robust Media3 ExoPlayer architecture. Engineered with a built-in offline AI subtitle generator powered by the whisper.cpp engine, it offers completely private, real-time audio transcription. PixelPlay seamlessly delivers broad multi-format compatibility and elite performance metrics inside an ultra-lightweight environment.</p>
 </section>
 
 <section class="animate">
-    <h2>Features</h2>
-    <ul>
-        <li>🌐 Wide Format Support: MKV, MP4, 3GP, WebM, AVI, MOV, and more.</li>
-        <li>⚡ Lightweight and Fast: Minimal resource usage.</li>
-        <li>🔧 Custom Controller for easy playback.</li>
-        <li>📌 Recent Videos listing.</li>
-        <li>▶️ Continue Videos listing.</li>
-        <li>🔍 File Browser.</li>
-        <li>▶️ Play directly from other apps.</li>
-        <li>🔍 Search with voice support</li>
-        <li>👋 Swipe gestures supported</li>
-        <li>⏩ Playback Speed Control.</li>
-    </ul>
-</section>
-
-<section class="animate">
-    <h2>Current Progress</h2>
-    <ul>
-        <li>✅ Video Playback</li>
-        <li>✅ Custom Controller</li>
-        <li>✅ Homescreen</li>
-        <li>✅ Dark mode supported</li>
-        <li>✅ File Browser</li>
-        <li>⏳ Network Streaming (In Progress)</li>
-        <li>⏳ Widewine and Clearkey DRM content playback (In Progress)</li>
-        <li>⏳ Multiple Advanced Features (In Progress)</li>
-    </ul>
-</section>
-
-<section class="animate">
-    <h2>Screenshots</h2>
-    <div class="screenshots">
-        <img src="1.png" alt="Screenshot 1">
-        <img src="2.png" alt="Screenshot 2">
-        <img src="3.png" alt="Screenshot 3">
-        <img src="4.png" alt="Screenshot 4">
-        <img src="5.png" alt="Screenshot 5">
-        <img src="6.png" alt="Screenshot 6">
-        <img src="7.png" alt="Screenshot 7">
-        <img src="8.png" alt="Screenshot 8">
-        <img src="9.png" alt="Screenshot 8">
-
+  <h2><span class="material-icons-round">star</span>Highlighted Features</h2>
+  <div class="grid-features">
+    <div class="feature-card">
+      <span class="material-icons-round">movie</span>
+      <div>
+        <h3>Wide Format Support</h3>
+        <p>MKV, MP4, 3GP, WebM, AVI, MOV, FLV, MPEG, WMV, OGG, and more.</p>
+      </div>
     </div>
+    <div class="feature-card">
+      <span class="material-icons-round">bolt</span>
+      <div>
+        <h3>Lightweight & Fast</h3>
+        <p>Optimized for minimal CPU and memory footprints with a sleek, interactive user design.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <span class="material-icons-round">settings_input_antenna</span>
+      <div>
+        <span class="ai-badge">AI Integration</span>
+        <h3>Offline AI Live Subtitles</h3>
+        <p>Generate precise live subtitles instantly on-device using the Whisper.cpp engine.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <span class="material-icons-round">tune</span>
+      <div>
+        <h3>Custom Controller</h3>
+        <p>A modernized media interface layout giving swift access to necessary video runtime settings.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <span class="material-icons-round">history</span>
+      <div>
+        <h3>Recent & Continue Playback</h3>
+        <p>Quickly look up recently played assets or resume videos exact seconds from where you left off.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <span class="material-icons-round">folder_open</span>
+      <div>
+        <h3>Intuitive File Browser</h3>
+        <p>In-app explorer made to browse local directory pools effortlessly for instant playback targets.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <span class="material-icons-round">touch_app</span>
+      <div>
+        <h3>Gesture Controls</h3>
+        <p>Swipe-driven configurations to control display brightness, audio level metrics, and forward seeking.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <span class="material-icons-round">speed</span>
+      <div>
+        <h3>Playback Speed Control</h3>
+        <p>Fine-tune operational variable speeds to suit real-time observation requirements.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <span class="material-icons-round">launch</span>
+      <div>
+        <h3>Intent Handling</h3>
+        <p>Open and broadcast target streaming or local video files straight from alternative external file utilities.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="animate">
-    <h2>Build</h2>
-    <pre style="background:#1e1e1e;color:#00ffae;padding:1rem;border-radius:8px;overflow-x:auto">
-git clone https://github.com/anuj-softech/PixelPlay.git
-Open the project in Android Studio.
-Build and run on your Android device.
-    </pre>
+  <h2><span class="material-icons-round">psychology</span>AI Offline Live Subtitles (Whisper.cpp)</h2>
+  <p>PixelPlay houses an isolated local speech-to-text algorithm structure, processing transcript assignments on-the-fly entirely inside your system memory pipelines.</p>
+
+  <div class="ai-spec-grid">
+    <div class="ai-spec-box">
+      <h4><span class="material-icons-round">lock</span>100% Offline & Private</h4>
+      <p>Execution relies exclusively on physical system infrastructure. Zero voice matrix data is transmitted to cloud properties.</p>
+    </div>
+    <div class="ai-spec-box">
+      <h4><span class="material-icons-round">layers</span>Model Management</h4>
+      <p>Directly manage Whisper binary builds inside the application. Built on standard ggml-tiny.bin components (~75 MB footprint).</p>
+    </div>
+    <div class="ai-spec-box">
+      <h4><span class="material-icons-round">memory</span>Adaptive Performance Tuning</h4>
+      <p>Configurable sliding systems control core threads allocation (1, 2, or 4 threads) to match structural execution speed vs battery choices.</p>
+    </div>
+    <div class="ai-spec-box">
+      <h4><span class="material-icons-round">sync</span>Sliding-Window Sync</h4>
+      <p>Structures background processing caching methods by feeding operational tracking chunks across 10-second segments.</p>
+    </div>
+  </div>
+
+  <div class="warning-note">
+    <span class="material-icons-round">info</span>
+    <span><strong>Current Limitation:</strong> Only English language voice translation tracks are natively processed at this development step.</span>
+  </div>
 </section>
 
 <section class="animate">
-    <h2>Contributing</h2>
-    <p>Contributions are welcome! Feel free to open issues for feature requests or bug reports, and send pull
-        requests.</p>
+  <h2><span class="material-icons-round">analytics</span>Current Progress</h2>
+  <div class="progress-list">
+    <div class="progress-item">
+      <span class="material-icons-round done">check_circle</span>
+      <span>Video Playback Engine</span>
+    </div>
+    <div class="progress-item">
+      <span class="material-icons-round done">check_circle</span>
+      <span>Custom Media Controller</span>
+    </div>
+    <div class="progress-item">
+      <span class="material-icons-round done">check_circle</span>
+      <span>Dynamic UI Homescreen</span>
+    </div>
+    <div class="progress-item">
+      <span class="material-icons-round done">check_circle</span>
+      <span>System Wide Dark Mode</span>
+    </div>
+    <div class="progress-item">
+      <span class="material-icons-round done">check_circle</span>
+      <span>Native File Browser</span>
+    </div>
+    <div class="progress-item">
+      <span class="material-icons-round done">check_circle</span>
+      <span>Whisper.cpp Subtitle Engine</span>
+    </div>
+    <div class="progress-item">
+      <span class="material-icons-round pending">hourglass_empty</span>
+      <span>Network Streaming Modules</span>
+    </div>
+    <div class="progress-item">
+      <span class="material-icons-round pending">hourglass_empty</span>
+      <span>Widevine & Clearkey DRM Playback</span>
+    </div>
+  </div>
 </section>
 
 <section class="animate">
-    <h2>License</h2>
-    <p>This project is licensed under the MIT License. See the LICENSE file for more details.</p>
+  <h2><span class="material-icons-round">closed_caption</span>AI Subtitle Demo</h2>
+  <div class="landscape-demo">
+    <img src="10.jpeg" alt="Landscape orientation demo showing AI generated subtitles running locally on the video layer">
+  </div>
+</section>
+
+<section class="animate">
+  <h2><span class="material-icons-round">photo_library</span>Application Screenshots</h2>
+  <div class="screenshots">
+    <img src="1.png" alt="PixelPlay Screenshot 1">
+    <img src="2.png" alt="PixelPlay Screenshot 2">
+    <img src="3.png" alt="PixelPlay Screenshot 3">
+    <img src="4.png" alt="PixelPlay Screenshot 4">
+    <img src="5.png" alt="PixelPlay Screenshot 5">
+    <img src="6.png" alt="PixelPlay Screenshot 6">
+    <img src="7.png" alt="PixelPlay Screenshot 7">
+    <img src="8.png" alt="PixelPlay Screenshot 8">
+    <img src="9.png" alt="PixelPlay Screenshot 9">
+  </div>
+</section>
+
+<section class="animate">
+  <h2><span class="material-icons-round">terminal</span>Installation Build</h2>
+  <pre>git clone https://github.com/anuj-softech/PixelPlay.git
+# Open the cloned project files folder directly inside Android Studio
+# Run compiler builds inside target system devices to install debug/release packages</pre>
+</section>
+
+<section class="animate">
+  <h2><span class="material-icons-round">groups</span>Contributing</h2>
+  <p>Contributions are highly appreciated! Feel free to report pipeline bugs, submit improvement ideas via repository issue tickers, or directly open pull requests against main development branches.</p>
+</section>
+
+<section class="animate">
+  <h2><span class="material-icons-round">gavel</span>License</h2>
+  <p>This project is licensed under terms specified by the MIT License. Review standard LICENSE configuration files for details.</p>
 </section>
 
 <footer>
-    <p>Made with ❤️ by Anuj Shrivastava MANIT. ⭐ Star the repo if you like it!</p>
+  <p>Made with <span class="material-icons-round">favorite</span> by Anuj Shrivastava MANIT. Star the repository if you like this codebase footprint!</p>
 </footer>
 
 <script>
+  fetch("https://pixelplay-analytics.main-rock-inc.workers.dev/web")
+          .then(res => res)
+          .then(data => console.log("Analytics stats:", data))
+          .catch(err => console.error("Fetch error:", err));
 
-    fetch("https://pixelplay-analytics.main-rock-inc.workers.dev/web")
-        .then(res => res)
-        .then(data => console.log("Analytics stats:", data))
-        .catch(err => console.error("Fetch error:", err));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, {threshold: 0.05});
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-    }, {threshold: 0.1});
-    function countDown() {
-            fetch("https://pixelplay-analytics.main-rock-inc.workers.dev/download")
+  function countDown() {
+    fetch("https://pixelplay-analytics.main-rock-inc.workers.dev/download")
             .then(res => res.json())
             .then(data => console.log("Analytics stats:", data))
             .catch(err => console.error("Fetch error:", err));
-    }
-    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+  }
+  document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
